@@ -175,4 +175,39 @@ def main():
     result = dijkstra_search(some_graph, some_costs, some_parents, "book", "piano")
     print(f"dijkstra_search of '{some_graph}' is '{result}'")
 
+
+    some_graph = {}
+    some_graph["start"] = {}
+    some_graph["start"]["A"] = 5
+    some_graph["start"]["B"] = 2
+    some_graph["A"] = {}
+    some_graph["A"]["C"] = 4
+    some_graph["A"]["D"] = 2
+    some_graph["B"] = {}
+    some_graph["B"]["A"] = 8
+    some_graph["B"]["D"] = 7
+    some_graph["C"] = {}
+    some_graph["C"]["D"] = 6
+    some_graph["C"]["finish"] = 3
+    some_graph["D"] = {}
+    some_graph["D"]["finish"] = 1
+    some_graph["finish"] = {}
+
+    some_costs = {}
+    some_costs["start"] = 0
+    some_costs["A"] = 5
+    some_costs["B"] = 2
+    some_costs["C"] = infinity
+    some_costs["D"] = infinity
+    some_costs["finish"] = infinity
+
+    some_parents = {}
+    some_parents["A"] = "start"
+    some_parents["B"] = "start"
+    some_parents["C"] = "A"
+    some_parents["D"] = "B"
+    some_parents["finish"] = None
+
+    result = dijkstra_search(some_graph, some_costs, some_parents, "start", "finish", )
+    print(f"dijkstra_search of '{some_graph}' is '{result}'")
 main()
